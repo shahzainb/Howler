@@ -21,6 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '498s1m1&l5r1##vpz3u@vi85n^$g8-j!p23djo=e04^f-9$9c$'
 
+AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_STORAGE_BUCKET_NAME = 'howlerweb'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -169,9 +173,7 @@ MEDIAFILES_DIRS = (
 )
 
 
-AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = 'howlerweb'
-STATIC_URL = '//s3.amazonaws.com/howlerweb/static/'
+
+
 
 
