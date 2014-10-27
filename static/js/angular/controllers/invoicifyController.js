@@ -11,23 +11,23 @@ angular.module('invoicify')
     $scope.belowFormSettings = [];
     $scope.onlyNumbers = /^\d+$/;
 
-    $http.get('/static/js/angular/data/mainform.json').success(function (data) {
+    $http.get('../data/mainform.json').success(function (data) {
 		$scope.mainPosts = data.posts;
 		$scope.mainSettings = data.settings;
 		$scope.setTotals();
 	});
     
-	$http.get('/static/js/angular/data/leftform.json').success(function (data) {
+	$http.get('../data/leftform.json').success(function (data) {
 		$scope.leftFormPosts = data.posts;
 		$scope.leftFormSettings = data.settings;
 	});
 
-	$http.get('/static/js/angular/data/rightform.json').success(function (data) {
+	$http.get('../data/rightform.json').success(function (data) {
 		$scope.rightFormPosts = data.posts;
 		$scope.rightFormSettings = data.settings;
 	});
 
-	$http.get('/static/js/angular/data/belowform.json').success(function (data) {
+	$http.get('../data/belowform.json').success(function (data) {
 		$scope.belowFormPosts = data.posts;
 		$scope.belowFormSettings = data.settings;
 	});
