@@ -181,8 +181,9 @@ define('swipeshow', ['jquery'],
     	},
 
 		start : function () {
-
-			if ($('.slideshow img').length === 2) {
+			if ($('.slideshow img').length === 1) {
+				$('.slideshow-description').show();
+			} else if ($('.slideshow img').length === 2) {
 				$('.slideshow img:last-child').remove();
 			} else if ($('.slideshow').length && $('.slideshow img').length > 2 && $('.slideshow .cms_placeholder').length !== 1) {
 				swipeshow.element = $('.slideshow');
