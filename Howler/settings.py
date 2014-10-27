@@ -155,24 +155,13 @@ ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'static/media/')
-MEDIA_URL = '/static/media/'
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'static'),
-)
-MEDIAFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'static'),
-)
 
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'howlerweb'
 S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = S3_URL
+STATIC_URL = S3_URL + '/static/'
 MEDIA_URL = S3_URL + '/media/'
 
 
