@@ -168,8 +168,7 @@ MEDIAFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'static'),
 )
 
-DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
-STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'howlerweb'
