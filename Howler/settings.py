@@ -157,11 +157,11 @@ ALLOWED_HOSTS = ['*']
 
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'howlerweb'
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 
 S3_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME
 STATIC_URL = S3_URL + STATIC_ROOT
