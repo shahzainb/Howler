@@ -132,6 +132,7 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('standard.html', 'standard'),
     ('feed.html', 'feed'),
+    ('invoicify.html', 'invoicify'),
 )
 
 
