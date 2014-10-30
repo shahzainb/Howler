@@ -5,11 +5,9 @@
 {% block base_content %}
 	<div class="slideshow-wrapper">
 		<div class="main--header-slideshow slideshow">
-			<a href="#" class="arrow-back">Scroll images left</a>
-			<a href="#" class="arrow-forward">Scroll images right</a>
 			<div class="slideshow-holder">
-
-			{% placeholder slideshow %}
+				{% placeholder image %}
+				{% placeholder html-for-image %}
 			</div>
 		</div>
 	</div>
