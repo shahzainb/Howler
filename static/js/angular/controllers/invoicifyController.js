@@ -11,23 +11,23 @@ angular.module('invoicify')
     $scope.belowFormSettings = [];
     $scope.onlyNumbers = /^\d+$/;
 
-    $http.get('https://howlerweb.s3.amazonaws.com/static/js/angular/data/mainform.json').success(function (data) {
+    $http.get('https://s3-eu-west-1.amazonaws.com/howlerweb/js/angular/data/mainform.json').success(function (data) {
 		$scope.mainPosts = data.posts;
 		$scope.mainSettings = data.settings;
 		$scope.setTotals();
 	});
     
-	$http.get('https://howlerweb.s3.amazonaws.com/static/js/angular/data/leftform.json').success(function (data) {
+	$http.get('https://s3-eu-west-1.amazonaws.com/howlerweb/js/angular/data/leftform.json').success(function (data) {
 		$scope.leftFormPosts = data.posts;
 		$scope.leftFormSettings = data.settings;
 	});
 
-	$http.get('https://howlerweb.s3.amazonaws.com/static/js/angular/data/rightform.json').success(function (data) {
+	$http.get('https://s3-eu-west-1.amazonaws.com/howlerweb/js/angular/data/rightform.json').success(function (data) {
 		$scope.rightFormPosts = data.posts;
 		$scope.rightFormSettings = data.settings;
 	});
 
-	$http.get('https://howlerweb.s3.amazonaws.com/static/js/angular/data/belowform.json').success(function (data) {
+	$http.get('https://s3-eu-west-1.amazonaws.com/howlerweb/js/angular/data/belowform.json').success(function (data) {
 		$scope.belowFormPosts = data.posts;
 		$scope.belowFormSettings = data.settings;
 	});
