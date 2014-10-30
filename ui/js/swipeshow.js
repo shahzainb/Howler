@@ -9,6 +9,8 @@ define('swipeshow', ['jquery'],
 
 		swipeshowLeftOffset : 0,
 
+		swipeDelay : 30,
+
 		auto : true,
 
 		swipeshowWidth : function () {
@@ -26,7 +28,7 @@ define('swipeshow', ['jquery'],
 				swipeshow.arrowBack = $('.arrow-back');
 				swipeshow.arrowForward = $('.arrow-forward');
 				swipeshow.arrowBack.show();
-				swipeshow.arrowForward.show();	
+				swipeshow.arrowForward.show();
 			}
 			
 			//Save images in array
@@ -142,7 +144,7 @@ define('swipeshow', ['jquery'],
 					swipeshow.backAnimation();
 				}			
 
-			}, 30));
+			}, swipeshow.swipeDelay));
 		},
 
 		preventScrollTooFar : function () {
@@ -181,18 +183,17 @@ define('swipeshow', ['jquery'],
     	},
 
 		start : function () {
-			if ($('.slideshow img').length === 1) {
-				$('.slideshow-description').show();
-			} else if ($('.slideshow img').length === 2) {
+
+			if ($('.slideshow img').length === 2) {
 				$('.slideshow img:last-child').remove();
 			} else if ($('.slideshow').length && $('.slideshow img').length > 2 && $('.slideshow .cms_placeholder').length !== 1) {
 				swipeshow.element = $('.slideshow');
 				swipeshow.holder = swipeshow.element.find('.slideshow-holder');
 				if ($(window).width() > 479) {
 					swipeshow.enableArrows = true;
+					swipeshow.swipeDelay = 300;
 				}
 				swipeshow.setup();
-
 			}			
 		}
 

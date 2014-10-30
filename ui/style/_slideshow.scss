@@ -90,11 +90,10 @@
 	width:100%;
 	overflow-y: hidden;
 	overflow-x: scroll;
-	position: relative;
 
 	
 	img {
-		width:25%;
+		width: 100%;
 		float: left;
 
 		&:first-child {
@@ -123,8 +122,6 @@
 	
 }
 .slideshow-holder {
-	width:400%;
-
 
 	.cms_placeholder  {
 		width:25%;

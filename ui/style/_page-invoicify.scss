@@ -16,7 +16,10 @@
 		font-size: 1.6rem;
 	}
 	input[type="text"]{
-		margin-bottom: 10px;
+		height: 35px;
+	    margin-bottom: 10px;
+	    padding-bottom: 0;
+	    padding-top: 0;
 		box-sizing: border-box;
 	}
 	input[type="text"].ng-invalid {
@@ -40,6 +43,7 @@
 	}
 	dd {
 		-webkit-margin-start: 0;
+		margin-left: 0;
 	}
 	dt,
 	label {
@@ -98,7 +102,10 @@
 		margin-bottom:50px;
 
 		input[type="text"] {
-			margin-top: 10px;
+			height: 50px;
+		    margin-top: 10px;
+		    padding-bottom: 0;
+		    padding-top: 0;
 		}
 	}
 
@@ -205,4 +212,10 @@
 		position: absolute;
 		bottom: 15px;
 	}
+}
+.mobile-warning {
+	border: 1px solid #d9534f;
+	background: #fadfdf;
+	padding:10px;
+	box-sizing: border-box;
 }

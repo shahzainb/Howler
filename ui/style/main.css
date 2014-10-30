@@ -628,6 +628,14 @@ input[type="text"] {
   display: block;
 }
 
+.show-mobile {
+  display: block;
+}
+
+.hide-mobile {
+  display: none;
+}
+
 /* Overrides for mobile portrait */
 /*  Phone Landscape */
 @media (min-width: 480px) {
@@ -666,6 +674,15 @@ input[type="text"] {
   }
 }
 /*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+  .show-mobile {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+}
 /*  Large Desktop */
 @media (min-width: 1025px) {
   .main {
@@ -896,10 +913,9 @@ input[type="text"] {
   width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
-  position: relative;
 }
 .slideshow img {
-  width: 25%;
+  width: 100%;
   float: left;
 }
 .slideshow img:first-child {
@@ -924,9 +940,6 @@ input[type="text"] {
   vertical-align: middle;
 }
 
-.slideshow-holder {
-  width: 400%;
-}
 .slideshow-holder .cms_placeholder {
   width: 25%;
 }
@@ -1181,7 +1194,10 @@ input[type="text"] {
   font-size: 1.6rem;
 }
 .invoicify input[type="text"] {
+  height: 35px;
   margin-bottom: 10px;
+  padding-bottom: 0;
+  padding-top: 0;
   box-sizing: border-box;
 }
 .invoicify input[type="text"].ng-invalid {
@@ -1201,6 +1217,7 @@ input[type="text"] {
 }
 .invoicify dd {
   -webkit-margin-start: 0;
+  margin-left: 0;
 }
 .invoicify dt,
 .invoicify label {
@@ -1250,7 +1267,10 @@ input[type="text"] {
   margin-bottom: 50px;
 }
 .invoicify .invoice-table input[type="text"] {
+  height: 50px;
   margin-top: 10px;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 .invoicify-post {
   overflow: hidden;
@@ -1343,6 +1363,13 @@ input[type="text"] {
   float: left;
   position: absolute;
   bottom: 15px;
+}
+
+.mobile-warning {
+  border: 1px solid #d9534f;
+  background: #fadfdf;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 @media print {

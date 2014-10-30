@@ -23,9 +23,14 @@
 	{% load verbatim %}
 	{% verbatim %}
 
-	<div class="main-wrapper" ng-controller="InvoicifyController as invoice">
+	
+
+	<div class="main-wrapper " ng-controller="InvoicifyController as invoice">
 		<main class="main" role="main">
-			<section class="invoicify">
+
+			<p class="mobile-warning show-mobile">This invoice is supposed to be created and printed from a computer.</p>
+
+			<section class="invoicify hide-mobile">
 				<article>
 					<form class="company-name" ng-submit="mainSettings.editingName = false">
 						<h2 ng-hide="mainSettings.editingName"
