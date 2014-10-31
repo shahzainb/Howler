@@ -1373,6 +1373,14 @@ input[type="text"] {
 }
 
 @media print {
+  .show-mobile {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+
   .main--nav,
   .main--header {
     display: none;
