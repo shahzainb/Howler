@@ -191,6 +191,7 @@ define('swipeshow', ['jquery'],
 				swipeshow.holder = swipeshow.element.find('.slideshow-holder');
 				if ($(window).width() > 479) {
 					swipeshow.enableArrows = true;
+				} else if ($(window).width() > 1023) {
 					swipeshow.swipeDelay = 300;
 				}
 				swipeshow.setup();
