@@ -1,0 +1,26 @@
+{
+    "settings" : {
+        "form" : "belowform",
+        "inEditMode" : false,
+        "newPost" : {}
+    },
+
+    "posts" : [
+        {
+            "id": 0,
+            "description" :  "Payment details:"
+        },
+        {
+            "id": 1,
+            "description" :  "Charlotte Holmen, Bondegatan 45, 116 33 Stockholm, Sweden"
+        },
+        {
+            "id": 6,
+            "description" :  "Account: SEB 5231 00 819 49"
+        },
+        {
+            "id": 5,
+            "description" :  "Organisation number: 8506098-8907"
+        }
+    ]
+}
