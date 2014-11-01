@@ -943,6 +943,27 @@ input[type="text"] {
 .slideshow-holder .cms_placeholder {
   width: 25%;
 }
+.slideshow-holder .description {
+  position: absolute;
+  bottom: 30%;
+  text-align: center;
+  width: 80%;
+  left: 10%;
+  color: white;
+  text-shadow: 1px 2px 3px #666;
+}
+.slideshow-holder .description p {
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.slideshow-holder .description span {
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-style: italic;
+  display: inline-block;
+}
 
 /* Overrides for mobile portrait */
 /*  Phone Landscape */
@@ -973,6 +994,19 @@ input[type="text"] {
 
   .slideshow {
     height: 560px;
+  }
+
+  .slideshow-holder .description {
+    bottom: 30%;
+  }
+  .slideshow-holder .description p {
+    font-size: 36px;
+    font-size: 3.6rem;
+  }
+  .slideshow-holder .description span {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin-top: 20px;
   }
 }
 /*  Large Desktop */
