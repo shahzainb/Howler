@@ -169,9 +169,9 @@ MEDIAFILES_DIRS = (
 
 # Amazon s3
 
-AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = 'howlerweb'
+AWS_ACCESS_KEY_ID = os.environ.get('AKIAIKTDGHJFFOPMZPUQ')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_STORAGE_BUCKET_NAME = 'howlerse'
 
 #if not DEBUG:
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
