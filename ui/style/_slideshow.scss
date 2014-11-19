@@ -90,11 +90,10 @@
 	width:100%;
 	overflow-y: hidden;
 	overflow-x: scroll;
-	position: relative;
 
 	
 	img {
-		width:25%;
+		width: 100%;
 		float: left;
 
 		&:first-child {
@@ -107,7 +106,7 @@
 		height: 100%;
 		top: 0;
 		position: absolute;
-		z-index: 1000;
+		z-index: 100;
 		margin: 0;
 		margin-left:10%;
 		span {
@@ -120,14 +119,38 @@
 		}
 
 	}
+
+
 	
 }
 .slideshow-holder {
-	width:400%;
-
 
 	.cms_placeholder  {
 		width:25%;
+	}
+	.description {
+		position: absolute;
+		bottom: 30%;
+		text-align: center;
+		width: 80%;
+		left:10%;
+		color:white;
+		text-shadow: 1px 2px 3px #666;
+
+		p {
+			font-size: 16px;
+			font-size: 1.6rem;
+			margin-bottom: 0;
+			font-weight: bold;
+		}
+
+		span {
+			font-size: 14px;
+			font-size: 1.4rem;
+			font-style: italic;	
+			display: inline-block;
+			
+		}
 	}
 }
 
@@ -170,6 +193,23 @@
 	}
 	.slideshow {
 		height:560px;
+	}
+
+	.slideshow-holder {
+		.description {
+			bottom: 30%;
+
+			p {
+				font-size: 36px;
+				font-size: 3.6rem;
+			}
+
+			span {
+				font-size: 18px;
+				font-size: 1.8rem;
+				margin-top:20px;
+			}
+		}
 	}
 }
 

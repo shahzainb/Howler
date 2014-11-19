@@ -32,8 +32,8 @@ module.exports = function(grunt) {
           tasks: ['sass']
       },
       js: {
-          files: ['js/*.js'],
-          tasks: ['jshint', 'requirejs']
+          files: ['js/*.js','js/**/*.js'],
+          tasks: ['jshint', 'requirejs', 'ngAnnotate:app', 'uglify:app']
       }
     },
     requirejs: {
@@ -69,7 +69,29 @@ module.exports = function(grunt) {
           }
         }
       }
-    }
+    },
+    ngAnnotate: {
+        app: {
+            files: {
+                '<%= devPath %>js/invoicifyApp.js': 
+                [
+                '<%= devPath %>js/vendor/angular.js',
+                '<%= devPath %>js/angular/invoicifyApp.js', 
+                '<%= devPath %>js/angular/controllers/invoicifyController.js',
+                ]
+            },
+        }
+    },
+    uglify: {
+        app: {
+            files: {
+                '<%= distPath %>js/invoicifyApp.min.js': 
+                [
+                '<%= devPath %>js/invoicifyApp.js'
+                ]
+            }
+        }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -77,8 +99,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-grunticon');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-ng-annotate');
   
-  grunt.registerTask('default', ['jshint', 'sass', 'requirejs']);
+  grunt.registerTask('default', ['jshint', 'sass', 'requirejs', 'ngAnnotate:app', 'uglify:app']);
   
 
 };

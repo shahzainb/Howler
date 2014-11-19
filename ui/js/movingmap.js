@@ -132,22 +132,26 @@ define('movingmap', ['jquery'],
 		},
 
 		mapStyle : function (hex) {
-			var style = [
-				{
-					featureType: "all",
-					stylers: [
-						{ hue: hex },
-						{ saturation: -50 }
-					]
-				},{
-					featureType: "road.arterial",
-					elementType: "geometry",
-					stylers: [
-						{ hue: hex },
-						{ saturation: 0 }
-					]
-				}
-			];
+
+			if (hex !== "") {
+				var style = [
+					{
+						featureType: "all",
+						stylers: [
+							{ hue: hex },
+							{ saturation: -50 }
+						]
+					},{
+						featureType: "road.arterial",
+						elementType: "geometry",
+						stylers: [
+							{ hue: hex },
+							{ saturation: 0 }
+						]
+					}
+				];
+			}
+			
 
 			return style;
 		},

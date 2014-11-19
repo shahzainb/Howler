@@ -3,18 +3,18 @@
 {% load cms_tags %}
 {% block body_class %}page-invoicify{% endblock %}
 
-
 {% block base_content %}
 
 	
 
 	<div class="slideshow-wrapper">
 		<div class="main--header-slideshow slideshow">
-			<a href="#" class="arrow-back">Scroll images left</a>
-			<a href="#" class="arrow-forward">Scroll images right</a>
 			<div class="slideshow-holder">
 
-			{% placeholder slideshow %}
+			{% placeholder image %}
+			<div class="description">
+				{% placeholder html-for-image %}
+			</div>
 			</div>
 		</div>
 	</div>
@@ -24,9 +24,14 @@
 	{% load verbatim %}
 	{% verbatim %}
 
-	<div class="main-wrapper" ng-controller="InvoicifyController as invoice">
+	
+
+	<div class="main-wrapper " ng-controller="InvoicifyController as invoice">
 		<main class="main" role="main">
-			<section class="invoicify">
+
+			<p class="mobile-warning show-mobile">This invoice is supposed to be created and printed from a computer.</p>
+
+			<section class="invoicify hide-mobile">
 				<article>
 					<form class="company-name" ng-submit="mainSettings.editingName = false">
 						<h2 ng-hide="mainSettings.editingName"
@@ -250,5 +255,5 @@
 
 	{% endverbatim %}
 
-
 {% endblock %}
+{% block thescript %}<script src="{{ STATIC_URL }}js/invoicifyApp.min.js"></script>{% endblock %}

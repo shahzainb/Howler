@@ -1,0 +1,25 @@
+{
+    "settings" : {
+        "form" : "rightform",
+        "inEditMode" : false
+    },
+
+    "posts" : [
+        {
+            "id": 0,
+            "description" :  "Client: Aftonbladet Hierta AB"
+        },
+        {
+            "id": 1,
+            "description" :  "c/o BGC"
+        },
+        {
+            "id": 2,
+            "description" :  "BGC-Id AFT 1020"
+        },
+        {
+            "id": 3,
+            "description" :  "106 42 Stockholm"
+        }
+    ]
+}

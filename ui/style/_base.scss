@@ -24,6 +24,8 @@ h1, h2 {
 .slideshow-description {
 	font-size: 24px;
 	font-size: 2.4rem;
+	text-shadow: 3px 3px 12px black;
+	display: none;
 }
 
 h2 a {
@@ -437,12 +439,22 @@ input[type="text"] {
 }
 
 
+
+.show-mobile {
+	display: block;
+}
+.hide-mobile {
+	display: none;
+}
+
+
 /* Overrides for mobile portrait */
 @media (max-width: 479px) {
 
 }
 /*  Phone Landscape */
 @media (min-width: 480px) {
+	
 	.large-input {
 		max-width: 62%;
 	}
@@ -484,7 +496,12 @@ input[type="text"] {
 
 /*  Small Desktop / tablets Landscape  */
 @media (min-width: 769px) {
-
+	.show-mobile {
+		display: none;
+	}
+	.hide-mobile {
+		display: block;
+	}
 
 }
 

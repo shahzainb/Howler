@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
-
+    'django_verbatim',
     'apps.post',
     'apps.slideshow',
     'djangocms_file',
@@ -132,6 +132,7 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('standard.html', 'standard'),
     ('feed.html', 'feed'),
+    ('invoicify.html', 'invoicify'),
 )
 
 
@@ -168,9 +169,9 @@ MEDIAFILES_DIRS = (
 
 # Amazon s3
 
-AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = 'howlerweb'
+AWS_ACCESS_KEY_ID = os.environ.get('dfg')
+AWS_SECRET_ACCESS_KEY = os.environ.get('dfg')
+AWS_STORAGE_BUCKET_NAME = 'dfgdfg'
 
 #if not DEBUG:
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

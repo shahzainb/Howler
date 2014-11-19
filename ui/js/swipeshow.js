@@ -9,6 +9,8 @@ define('swipeshow', ['jquery'],
 
 		swipeshowLeftOffset : 0,
 
+		swipeDelay : 30,
+
 		auto : true,
 
 		swipeshowWidth : function () {
@@ -26,7 +28,7 @@ define('swipeshow', ['jquery'],
 				swipeshow.arrowBack = $('.arrow-back');
 				swipeshow.arrowForward = $('.arrow-forward');
 				swipeshow.arrowBack.show();
-				swipeshow.arrowForward.show();	
+				swipeshow.arrowForward.show();
 			}
 			
 			//Save images in array
@@ -142,7 +144,7 @@ define('swipeshow', ['jquery'],
 					swipeshow.backAnimation();
 				}			
 
-			}, 30));
+			}, swipeshow.swipeDelay));
 		},
 
 		preventScrollTooFar : function () {
@@ -189,9 +191,10 @@ define('swipeshow', ['jquery'],
 				swipeshow.holder = swipeshow.element.find('.slideshow-holder');
 				if ($(window).width() > 479) {
 					swipeshow.enableArrows = true;
+				} else if ($(window).width() > 1023) {
+					swipeshow.swipeDelay = 300;
 				}
 				swipeshow.setup();
-
 			}			
 		}
 

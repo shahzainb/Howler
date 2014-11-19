@@ -252,6 +252,8 @@ h1, h2 {
 .slideshow-description {
   font-size: 24px;
   font-size: 2.4rem;
+  text-shadow: 3px 3px 12px black;
+  display: none;
 }
 
 h2 a {
@@ -626,6 +628,14 @@ input[type="text"] {
   display: block;
 }
 
+.show-mobile {
+  display: block;
+}
+
+.hide-mobile {
+  display: none;
+}
+
 /* Overrides for mobile portrait */
 /*  Phone Landscape */
 @media (min-width: 480px) {
@@ -664,6 +674,15 @@ input[type="text"] {
   }
 }
 /*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+  .show-mobile {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+}
 /*  Large Desktop */
 @media (min-width: 1025px) {
   .main {
@@ -894,10 +913,9 @@ input[type="text"] {
   width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
-  position: relative;
 }
 .slideshow img {
-  width: 25%;
+  width: 100%;
   float: left;
 }
 .slideshow img:first-child {
@@ -909,7 +927,7 @@ input[type="text"] {
   height: 100%;
   top: 0;
   position: absolute;
-  z-index: 1000;
+  z-index: 100;
   margin: 0;
   margin-left: 10%;
 }
@@ -922,11 +940,29 @@ input[type="text"] {
   vertical-align: middle;
 }
 
-.slideshow-holder {
-  width: 400%;
-}
 .slideshow-holder .cms_placeholder {
   width: 25%;
+}
+.slideshow-holder .description {
+  position: absolute;
+  bottom: 30%;
+  text-align: center;
+  width: 80%;
+  left: 10%;
+  color: white;
+  text-shadow: 1px 2px 3px #666;
+}
+.slideshow-holder .description p {
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.slideshow-holder .description span {
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-style: italic;
+  display: inline-block;
 }
 
 /* Overrides for mobile portrait */
@@ -958,6 +994,19 @@ input[type="text"] {
 
   .slideshow {
     height: 560px;
+  }
+
+  .slideshow-holder .description {
+    bottom: 30%;
+  }
+  .slideshow-holder .description p {
+    font-size: 36px;
+    font-size: 3.6rem;
+  }
+  .slideshow-holder .description span {
+    font-size: 18px;
+    font-size: 1.8rem;
+    margin-top: 20px;
   }
 }
 /*  Large Desktop */
@@ -1179,7 +1228,10 @@ input[type="text"] {
   font-size: 1.6rem;
 }
 .invoicify input[type="text"] {
+  height: 35px;
   margin-bottom: 10px;
+  padding-bottom: 0;
+  padding-top: 0;
   box-sizing: border-box;
 }
 .invoicify input[type="text"].ng-invalid {
@@ -1199,6 +1251,7 @@ input[type="text"] {
 }
 .invoicify dd {
   -webkit-margin-start: 0;
+  margin-left: 0;
 }
 .invoicify dt,
 .invoicify label {
@@ -1248,7 +1301,10 @@ input[type="text"] {
   margin-bottom: 50px;
 }
 .invoicify .invoice-table input[type="text"] {
+  height: 50px;
   margin-top: 10px;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 .invoicify-post {
   overflow: hidden;
@@ -1343,7 +1399,22 @@ input[type="text"] {
   bottom: 15px;
 }
 
+.mobile-warning {
+  border: 1px solid #d9534f;
+  background: #fadfdf;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 @media print {
+  .show-mobile {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: block;
+  }
+
   .main--nav,
   .main--header {
     display: none;
@@ -1384,5 +1455,3 @@ input[type="text"] {
     overflow: auto;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
