@@ -1,17 +1,17 @@
 /*
- * Ajaxloader.js - infinite loading for posts
- *
- * Copyright (c) Charlotte Holmen
- *
- * www.howler.se
- *
- * Version:  1.1
- *
- */
+* Ajaxloader.js - infinite loading for posts
+*
+* Copyright (c) Charlotte Holmen
+*
+* www.howler.se
+*
+* Version:  1.1
+*
+*/
 
 define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 
-	function ($, Lazyload, MovingMap) {
+function ($, Lazyload, MovingMap) {
 
 	'use strict';
 
@@ -20,7 +20,7 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 	}
 
 	AjaxLoader.prototype = {
-		
+
 		defaults : {
 			loading : false
 		},
@@ -50,7 +50,7 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 			}
 
 			self.settings.$stepLinks.hide();
-				
+
 		},
 
 		scroll : function () {
@@ -61,13 +61,13 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 			$(window).bind('scroll.ajaxloader', function () {
 
 				//IE fix
-            	y = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-				
+				y = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
 				if (y + $(window).height() >= $(document).height() && self.settings.loading === false) {
 					self.settings.loading = true;
 					self.settings.loadPosts();
 				}
-    		});
+			});
 		},
 
 		loadPosts : function () {
@@ -84,7 +84,6 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 				url:url,
 				type:'GET',
 				success: function(data){
-
 					posts = $(data).find(holder).html();
 					$(populateholder).append(posts);
 					currentPagination.remove();
