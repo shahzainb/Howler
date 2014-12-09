@@ -3,7 +3,9 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
     function ($, Swipeshow, MovingMap, Activify, Ajaxloader, Lazyload) {
     'use strict';
 
-	var main = {
+    var Main = function (){};
+	
+	Main.prototype = {
 
 		init : function () {
 			this.documentSetup();
@@ -44,15 +46,38 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 		},
 
 		swipeshowInit : function () {
-			Swipeshow.start();
+
+			var $djangoPlugin = $('.slideshow .cms_placeholder');
+
+			if ($('.slideshow').length && $djangoPlugin.length !== 1) {
+				berlinSlide = new Swipeshow({
+					$element: $('.slideshow'),
+					$holder: $('.slideshow-holder'),
+					$arrowBack: $('.arrow-back'),
+					$arrowForward: $('.arrow-forward')
+				});
+
+				berlinSlide.init();
+			}
 		},
 
 		lazyInit : function () {
-			Lazyload.start();
+
+			if ($('.lazy').length) {
+				var lazy = new Lazyload();
+				lazy.init();
+			}
+
 		},
 
 		movingMapInit : function () {
-			MovingMap.start();
+
+			if ($('.mymap').length) {
+				var berlinMap = new MovingMap({
+					$mapHolder: $('.mymap')
+				});
+				berlinMap.init();
+			}
 		},
 
 		ajaxloaderInit : function () {
@@ -72,7 +97,7 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 
 
 	$(document).ready(function () {
-		main.init();
+		new Main.init();
 	});
     
 });

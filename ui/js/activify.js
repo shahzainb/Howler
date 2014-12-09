@@ -1,4 +1,15 @@
-define('activify', ['jquery', 'movingmap'], 
+/*
+ * Activify.js - toggle element with class active 
+ *
+ * Copyright (c) Charlotte Holmen
+ *
+ * www.howler.se
+ *
+ * Version:  1.1
+ *
+ */
+
+ define('activify', ['jquery', 'movingmap'], 
 
 	function ($, MovingMap) {
 	'use strict';

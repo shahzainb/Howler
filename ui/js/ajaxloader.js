@@ -1,3 +1,14 @@
+/*
+ * Ajaxloader.js - infinite loading for posts
+ *
+ * Copyright (c) Charlotte Holmen
+ *
+ * www.howler.se
+ *
+ * Version:  1.1
+ *
+ */
+
 define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 
 	function ($, Lazyload, MovingMap) {
