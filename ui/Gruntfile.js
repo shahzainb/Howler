@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       },
       js: {
           files: ['js/*.js','js/**/*.js'],
-          tasks: ['jshint', 'requirejs', 'ngAnnotate:app', 'uglify:app']
+          tasks: ['jshint', 'requirejs', 'uglify:app']
       }
     },
     requirejs: {

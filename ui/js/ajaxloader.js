@@ -4,44 +4,69 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 
 	'use strict';
 
-	var ajaxloader = {
+	var AjaxLoader = function (options) {
+		this.options = options;
+	}
 
-		loading : false,
+	AjaxLoader.prototype = {
+		
+		defaults : {
+			loading : false
+		},
+
+		init : function () {
+
+			var self = this;
+
+			//Merge options and defaults
+			self.settings = $.extend({}, self.options, self.defaults);
+
+			self.setup();
+			self.scroll();
+			self.accessability();
+		},
 
 		setup : function () {
 
-			if ($('.ajax-loader').length) {
-				$('.ajax-loader').show();
-				ajaxloader.loaderDiv = $('.ajax-loader');
-				ajaxloader.loading = false;
-				$('.page-bottom').hide();	
+			var self = this;
+
+			if (self.settings.$loader.length) {
+				self.settings.$loader.show();
+				self.settings.loading = false;
+				self.settings.$pageBottom.hide();	
 			} else {
-				$('.page-bottom').show();
+				self.settings.$pageBottom.show();
 			}
 
-			$('.step-links').hide();
+			self.settings.$stepLinks.hide();
 				
 		},
 
 		scroll : function () {
 
-			var y;
+			var self = this,
+				y;
 
 			$(window).bind('scroll.ajaxloader', function () {
+
+				//IE fix
             	y = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-				if (y + $(window).height() >= $(document).height() && ajaxloader.loading === false) {
-					ajaxloader.loading = true;
-					ajaxloader.loadPosts();
+				
+				if (y + $(window).height() >= $(document).height() && self.settings.loading === false) {
+					self.settings.loading = true;
+					self.settings.loadPosts();
 				}
     		});
 		},
 
 		loadPosts : function () {
-			var loaderData = ajaxloader.loaderDiv.data(),
-				holder = loaderData.holder,
-				populateholder = loaderData.populateholder,
-				url = loaderData.url,
-				currentPagination = ajaxloader.loaderDiv.parents('.posts--pagination'),
+
+			var self = this,
+				data = self.settings.$loader.data(),
+				holder = data.holder,
+				populateholder = data.populateholder,
+				url = data.url,
+				currentPagination = self.settings.$loader.parents('.posts--pagination'),
 				posts;
 
 			$.ajax({
@@ -57,6 +82,7 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 						ajaxloader.start();
 					}
 
+					//Reinit lazy and map
 					Lazyload.start();
 					MovingMap.start();
 				}
@@ -64,22 +90,16 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 		},
 
 		accessability : function () {
-			$('.ajax-loader--image').bind('click', function (e){
+
+			var self = this;
+
+			self.settings.$loaderImage.bind('click', function (e){
 				e.preventDefault();
 				window.scrollTo(0,document.body.scrollHeight);
 			});
-		},
+		}
+	}
 
-		start : function () {
-			if ($('.posts--pagination').length) {
-				this.setup();
-				this.scroll();
-				this.accessability();
-			}
+	return AjaxLoader;
 
-
-		}		
-	};
-
-	return ajaxloader;
 });

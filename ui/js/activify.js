@@ -1,41 +1,44 @@
 define('activify', ['jquery', 'movingmap'], 
+
 	function ($, MovingMap) {
 	'use strict';
 
-    var activify = {
+	var Activify = function (options) {
+		this.options = options;
+	};
 
-    	setup : function (trigger, target, keyword) {
-				
-			trigger.bind('click', function (e) {
+	Activify.prototype = {
+
+		defaults : {},
+
+		init : function () {
+
+			var self = this;
+
+			self.settings = $.extend({}, self.options, self.defaults);
+
+			self.setup();
+
+		},
+
+		setup : function () {
+
+			var self = this;
+
+			self.settings.$trigger.bind('click', function (e) {
 				e.preventDefault();
-				activify();
-				if (keyword === 'initmap') {
+				if (self.settings.$target.hasClass('active')) {
+					self.settings.$target.removeClass('active');
+				} else {
+					self.settings.$target.addClass('active');
+				}
+				if (self.settings.reInitMap === true) {
 					MovingMap.initOnResizeMap();
 				}
 			});
-
-			function activify() {
-				if (target.hasClass('active')) {
-					target.removeClass('active');
-				} else {
-					target.addClass('active');
-				}
-				
-			}		
-		},
-
-		start : function () {
-			if ($('.main--nav-trigger').length) {
-				this.setup($('.main--nav-trigger'), $('.main--nav-target'));
-			}
-
-			if ($('.aside--trigger').length) {
-				this.setup($('.aside--trigger'), $('.aside--target'), 'initmap');
-			}
 		}
+	};
 
-    };
-
-    return activify;
+	return Activify;
 
 });
