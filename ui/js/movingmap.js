@@ -62,7 +62,7 @@ function ($) {
 			google.maps.event.addDomListener(window, 'load', run());
 
 			function run() {
-				var map = new google.maps.Map(self.settings.$mapHolder[0], self.settings.mapOptions());
+				var map = new google.maps.Map(self.settings.$mapHolder[0], self.mapOptions());
 				self.settings.map = map;
 				self.settings.$mapHolder.parents('.loading').removeClass('loading');
 
@@ -144,7 +144,7 @@ function ($) {
 				$title = $('.map-title');
 
 			$title.html(marker.title);
-			self.settings.resetMarkers();
+			self.resetMarkers();
 			marker.setIcon(self.settings.greenIcon);
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 			window.setTimeout(function() {
@@ -224,30 +224,31 @@ function ($) {
 							post.obj.addClass('movingmap');
 							self.panToMarker(post.long, post.lat);
 							self.markerAnimation(marker);
-							self.settings.map.setOptions({styles: self.settings.mapStyle(post.hex)});												
+							self.settings.map.setOptions({styles: self.mapStyle(post.hex)});												
 						}
 					}
 				} else if (currentTopOfPage > topOfPage) {
 
-					for (i = 0; i < self.settings.postsArray.length; i ++)
+					for (i = 0; i < self.settings.postsArray.length; i ++){
 						post = self.settings.postsArray[i];
 						marker = self.settings.markers[i];
 
 						// If map top goes above post bottom
 						if (topOfPage < (post.top + post.obj.height() - 200) && post.obj.hasClass('movingmap')) {
 							post.obj.removeClass('movingmap');	
-							self.settings.panToMarker(post.long, post.lat);
-							self.settings.markerAnimation(marker);
-							self.settings.map.setOptions({styles: self.settings.mapStyle(post.hex)});
+							self.panToMarker(post.long, post.lat);
+							self.markerAnimation(marker);
+							self.settings.map.setOptions({styles: self.mapStyle(post.hex)});
 						}
 					}
-				}
+				} 
 
 				currentTopOfPage = topOfPage;
 			});
 		},
 
 		initOnResizeMap : function () {
+
 
 			var self = this;
 

@@ -2,10 +2,8 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 
     function ($, Swipeshow, MovingMap, Activify, Ajaxloader, Lazyload) {
     'use strict';
-
-    var Main = function (){};
 	
-	Main.prototype = {
+	main = {
 
 		init : function () {
 			this.documentSetup();
@@ -13,7 +11,7 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 			this.swipeshowInit();
 			this.lazyInit();
 			this.movingMapInit();
-			this.ajaxloaderInit();
+			this.ajaxloaderInit(); 
 		},
 
 		documentSetup : function () {
@@ -49,7 +47,7 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 
 			var $djangoPlugin = $('.slideshow .cms_placeholder');
 
-			if ($('.slideshow').length && $djangoPlugin.length !== 1) {
+			if ($('.slideshow').length && $('.slideshow img').length > 1 && $djangoPlugin.length !== 1) {
 				berlinSlide = new Swipeshow({
 					$element: $('.slideshow'),
 					$holder: $('.slideshow-holder'),
@@ -66,6 +64,10 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 			if ($('.lazy').length) {
 				var lazy = new Lazyload();
 				lazy.init();
+
+				if (lazy.settings.reloadApps === true) {
+					console.log('hallo');
+				}
 			}
 
 		},
@@ -97,7 +99,7 @@ define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'l
 
 
 	$(document).ready(function () {
-		new Main.init();
+		main.init();
 	});
     
 });

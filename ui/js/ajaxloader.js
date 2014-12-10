@@ -9,9 +9,9 @@
 *
 */
 
-define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
+define('ajaxloader', ['jquery', 'main'],
 
-function ($, Lazyload, MovingMap) {
+function ($, Main) {
 
 	'use strict';
 
@@ -22,7 +22,8 @@ function ($, Lazyload, MovingMap) {
 	AjaxLoader.prototype = {
 
 		defaults : {
-			loading : false
+			loading : false,
+			reloadApps : false
 		},
 
 		init : function () {
@@ -65,7 +66,7 @@ function ($, Lazyload, MovingMap) {
 
 				if (y + $(window).height() >= $(document).height() && self.settings.loading === false) {
 					self.settings.loading = true;
-					self.settings.loadPosts();
+					self.loadPosts();
 				}
 			});
 		},
@@ -89,12 +90,13 @@ function ($, Lazyload, MovingMap) {
 					currentPagination.remove();
 
 					if (window.location.search === "") {
-						ajaxloader.start();
+						self.init();
 					}
 
 					//Reinit lazy and map
-					Lazyload.start();
-					MovingMap.start();
+					self.settings.reloadApps = true;
+
+					console.log('yo');
 				}
 			});
 		},
