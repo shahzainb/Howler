@@ -13,5 +13,4 @@ static/uploads
 static/media
 
 Howler/devsettings.py
-Howler/settings.py
 Howler/prodsettings.py
